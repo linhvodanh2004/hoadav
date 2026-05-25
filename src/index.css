@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@400..700&family=Inter:wght@400;600;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-brutal-black: #0a0a0a;
+  --color-brutal-orange: #FF4500;
+  --color-brutal-white: #f4f4f0;
+
+  --font-sans: Inter, sans-serif;
+  --font-brutal: "Bebas Neue", impact, sans-serif;
+  --font-script: Caveat, cursive;
+}
+
+body {
+  background-color: var(--color-brutal-white);
+  color: var(--color-brutal-black);
+  font-family: var(--font-sans);
+  margin: 0;
+  overflow-x: hidden;
+}
+
+@utility brutal-border {
+  border-width: 4px;
+  border-color: var(--color-brutal-black);
+}
+
+@utility brutal-shadow {
+  box-shadow: 8px 8px 0px 0px rgba(10,10,10,1);
+}
+
+@utility brutal-shadow-hover {
+  &:hover {
+    box-shadow: 12px 12px 0px 0px rgba(10,10,10,1);
+    transform: translate(-4px, -4px);
+  }
+}
+
+@utility brutal-transition {
+  transition: all 0.2s ease-in-out;
+}
