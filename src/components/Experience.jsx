@@ -4,8 +4,18 @@ const experiences = [
   {
     title: "SOCIAL INTERN",
     company: "FPT SOFTWARE",
-    date: "Jul 2025 - Now",
+    date: "Jul 2025 - March 2026",
     desc: ["Translate news and editorial content between English and Vietnamese.", "Research and compile news, monitor trends, and produce bilingual posts & reels on technology topics.", "Conduct interviews with outstanding employees across the company nationwide."]
+  },
+  {
+    title: "ENGLISH TEACHER",
+    company: "AMES ENGLISH CENTER",
+    date: "Sep 2025 - Jan 2026",
+    desc: [
+      "Designing and delivering tailored communicative English lessons for 1-on-1 and small group sessions.",
+      "Evaluating students' performance through regular mock tests and providing detailed, actionable feedback.",
+      "Fostering an engaging learning environment that significantly boosted students' speaking confidence and overall scores."
+    ]
   },
   {
     title: "ENGLISH TEACHER",
@@ -31,16 +41,16 @@ export default function Experience() {
   return (
     <section className="py-24 px-8 md:px-16 bg-brutal-white text-brutal-black border-b-8 border-brutal-black">
       <div className="max-w-7xl mx-auto">
-        <h2 className="font-brutal text-7xl md:text-[10rem] mb-16 text-brutal-black tracking-tighter drop-shadow-[6px_6px_0_#FF4500] leading-none">WORK<br/>EXPERIENCE</h2>
-        
+        <h2 className="font-brutal text-7xl md:text-[10rem] mb-16 text-brutal-black tracking-tighter drop-shadow-[6px_6px_0_#FF4500] leading-none">WORK<br />EXPERIENCE</h2>
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {experiences.map((exp, i) => (
-            <motion.div 
+            <motion.div
               key={i}
               initial={{ y: 50, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ delay: (i%2) * 0.2 }}
+              transition={{ delay: (i % 2) * 0.2 }}
               className="border-4 border-brutal-black bg-brutal-white p-6 md:p-10 brutal-shadow-hover brutal-transition flex flex-col justify-between"
             >
               <div>
