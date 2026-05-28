@@ -61,6 +61,7 @@ export default function Hero() {
                 src="/vuongdieuhoa_assets/z7875554717545_646e59e1d07f5ed696a0b6cbe5ee67cf.jpg"
                 alt="Vuong Dieu Hoa Portrait"
                 className="w-full h-full object-cover transition-all duration-500"
+                draggable="false"
               />
             </div>
 

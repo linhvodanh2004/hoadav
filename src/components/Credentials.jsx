@@ -32,8 +32,12 @@ export default function Credentials() {
           >
             CREDENTIALS
           </motion.h2>
-          <p className="text-brutal-orange font-bold uppercase tracking-wider text-sm">
-            🎓 Academic milestones & career documents
+          <p className="text-brutal-orange font-bold uppercase tracking-wider text-sm flex items-center gap-1.5">
+            <svg className="w-4 h-4 text-brutal-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z" />
+              <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5" />
+            </svg>
+            Academic milestones & career documents
           </p>
         </div>
 
@@ -73,7 +77,7 @@ export default function Credentials() {
                 className="w-full bg-brutal-white hover:bg-brutal-beige text-brutal-black border-2 border-brutal-black py-2.5 px-4 font-bold text-xs uppercase text-center rounded-xl brutal-shadow-hover flex items-center justify-center gap-2 mt-4 transition-all"
               >
                 <Eye size={16} />
-                View Official IELTS Certificate 🔍
+                View Official IELTS Certificate
               </button>
             </motion.div>
 
@@ -148,6 +152,7 @@ export default function Credentials() {
                     src="/vuongdieuhoa_assets/vuongdieuhoa_cv_preview.png"
                     alt="Vuong Dieu Hoa Curriculum Vitae Preview"
                     className="w-full h-full object-cover object-top group-hover:scale-103 transition-transform duration-500"
+                    draggable="false"
                   />
                   {/* Overlay on hover */}
                   <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
@@ -227,6 +232,7 @@ export default function Credentials() {
                   src="/vuongdieuhoa_assets/vuongdieuhoa_ielts_cert.jpg"
                   alt="Official IELTS 7.5 Certificate"
                   className="max-w-full h-auto object-contain rounded-lg border border-brutal-black/20"
+                  draggable="false"
                 />
               </div>
 

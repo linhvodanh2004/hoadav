@@ -4,10 +4,10 @@ import { Play, ZoomIn, X, Volume2, VolumeX } from 'lucide-react';
 
 const CATEGORIES = [
   { id: 'all', label: 'All Projects' },
-  { id: 'hosting', label: '🎤 MC & Hosting' },
-  { id: 'corporate', label: '💼 Corporate (FPT)' },
-  { id: 'campus', label: '🎓 DAV Campus' },
-  { id: 'education', label: '📝 Education & Classes' }
+  { id: 'hosting', label: 'MC & Hosting' },
+  { id: 'corporate', label: 'Corporate (FPT)' },
+  { id: 'campus', label: 'DAV Campus' },
+  { id: 'education', label: 'Education & Classes' }
 ];
 
 const GALLERY_ITEMS = [
@@ -267,8 +267,12 @@ export default function Gallery() {
             >
               GALLERY
             </motion.h2>
-            <p className="text-brutal-orange font-bold uppercase tracking-wider text-sm">
-              🎬 Multimedia Showcase • 24 Curated Records
+            <p className="text-brutal-orange font-bold uppercase tracking-wider text-sm flex items-center gap-1.5">
+              <svg className="w-4 h-4 text-brutal-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="m22 8-6 4 6 4V8Z" />
+                <rect width="14" height="12" x="2" y="6" rx="2" ry="2" />
+              </svg>
+              Multimedia Showcase • 24 Curated Records
             </p>
           </div>
 
@@ -278,11 +282,39 @@ export default function Gallery() {
               <button
                 key={tab.id}
                 onClick={() => setActiveFilter(tab.id)}
-                className={`font-sans font-bold text-xs uppercase px-4 py-2 border-2 border-brutal-black transition-all ${activeFilter === tab.id
+                className={`font-sans font-bold text-xs uppercase px-4 py-2 border-2 border-brutal-black transition-all flex items-center gap-1.5 ${activeFilter === tab.id
                   ? 'bg-brutal-orange text-brutal-white brutal-shadow-hover translate-x-[-2px] translate-y-[-2px]'
                   : 'bg-brutal-white text-brutal-black hover:bg-brutal-beige'
                   }`}
               >
+                {/* Custom SVGs for categories */}
+                {tab.id === 'hosting' && (
+                  <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" />
+                    <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+                    <line x1="12" x2="12" y1="19" y2="22" />
+                  </svg>
+                )}
+                {tab.id === 'corporate' && (
+                  <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M15 2H9a2 2 0 0 0-2 2v2H3a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-4V4a2 2 0 0 0-2-2z" />
+                    <rect width="20" height="14" x="2" y="6" rx="2" />
+                    <path d="M12 11h.01" />
+                    <path d="M16 16v1a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-1" />
+                  </svg>
+                )}
+                {tab.id === 'campus' && (
+                  <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z" />
+                    <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5" />
+                  </svg>
+                )}
+                {tab.id === 'education' && (
+                  <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+                  </svg>
+                )}
                 {tab.label}
               </button>
             ))}
@@ -353,6 +385,7 @@ export default function Gallery() {
                     src={selectedMedia.src}
                     alt={selectedMedia.title}
                     className="w-full h-full object-contain max-h-[600px]"
+                    draggable="false"
                   />
                 )}
               </div>
@@ -459,6 +492,7 @@ function GalleryCard({ item, onSelect }) {
               src={item.src}
               alt={item.title}
               className="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
+              draggable="false"
             />
             {/* Hover overlay with zoom */}
             <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
