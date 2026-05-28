@@ -4,21 +4,26 @@ import { Play, ZoomIn, X, Volume2, VolumeX } from 'lucide-react';
 
 const CATEGORIES = [
   { id: 'all', label: 'All Projects' },
-  { id: 'hosting', label: 'MC & Hosting' },
-  { id: 'corporate', label: 'Corporate (FPT)' },
-  { id: 'campus', label: 'DAV Campus' },
-  { id: 'education', label: 'Education & Classes' }
+  { id: 'communications', label: 'Communications Projects' },
+  { id: 'academic', label: 'Academic Experiences' },
+  { id: 'teaching', label: 'Teaching Experiences' }
 ];
 
+const getCategoryLabel = (catId) => {
+  const category = CATEGORIES.find(c => c.id === catId);
+  return category ? category.label : catId;
+};
+
 const GALLERY_ITEMS = [
-  // MC / Hosting
+  // MC / Hosting / Corporate -> COMMUNICATIONS PROJECTS
   {
     id: 1,
     type: 'video',
     src: '/vuongdieuhoa_assets/7875554960738.mp4',
-    title: 'Communication Project',
-    category: 'hosting',
-    desc: 'Event Host for the red-themed student speaker championship gala.',
+    title: 'Media Publication',
+    category: 'communications',
+    desc: "A political journal about Donald Trump's comeback to the US presidency in 2016 and its connection to Vietnam.",
+    link: 'https://drive.google.com/file/d/1Q6qnOcL7BrUKfO86OmAhCH3tK7UoE_iC/view?usp=sharing',
     aspect: 'video-tall'
   },
   {
@@ -26,26 +31,26 @@ const GALLERY_ITEMS = [
     type: 'video',
     src: '/vuongdieuhoa_assets/7875554871737.mp4',
     title: 'FPT Event',
-    category: 'hosting',
-    desc: 'Bilingual presenter for high-energy neon youth festival stage.',
+    category: 'communications',
+    desc: 'Scriptwriting and event support for FPT Software Corporation.',
     aspect: 'video-tall'
   },
   {
     id: 3,
     type: 'video',
     src: '/vuongdieuhoa_assets/7875554983982.mp4',
-    title: 'MC',
-    category: 'hosting',
-    desc: 'Field host and narrator visiting heavy industry machinery press factory.',
+    title: 'Project Presenter',
+    category: 'academic',
+    desc: 'Writing the script, directed, and provided voiceovers for the short historical documentary.',
     aspect: 'video-wide'
   },
   {
     id: 4,
     type: 'image',
     src: '/vuongdieuhoa_assets/z7875554759922_658f893fd0a5667186e54240104c12b5.jpg',
-    title: 'MC',
-    category: 'hosting',
-    desc: 'Public speaking presentation with microphone at campus auditoriums.',
+    title: 'Event Host',
+    category: 'academic',
+    desc: 'Hosting a get-together between lecturers and students of the English Language major.',
     aspect: 'square'
   },
   {
@@ -53,7 +58,7 @@ const GALLERY_ITEMS = [
     type: 'image',
     src: '/vuongdieuhoa_assets/z7875554820641_ede5e687416a5d5004e90e97beda7fe9.jpg',
     title: 'Media Recording Shoot',
-    category: 'hosting',
+    category: 'communications',
     desc: 'Studio filming session for bilingual advertising campaign projects.',
     aspect: 'square'
   },
@@ -61,93 +66,75 @@ const GALLERY_ITEMS = [
     id: 6,
     type: 'image',
     src: '/vuongdieuhoa_assets/z7875554820645_950891ef5f4f951e8b1a8f50be8d40cd.jpg',
-    title: 'BTS Camera Monitor',
-    category: 'hosting',
-    desc: 'Behind the scenes camera monitor view during the speaking segment.',
+    title: 'Create Corporate Promotional Videos',
+    category: 'communications',
+    desc: 'The process of producing external communication videos for FPT Software Corporation.',
     aspect: 'square'
   },
 
-  // Corporate FPT
+  // Corporate FPT -> COMMUNICATIONS PROJECTS / ACADEMIC EXPERIENCES
   {
     id: 7,
     type: 'image',
     src: '/vuongdieuhoa_assets/z7875554717546_ce480a797ab748488e04c66422d3bd08.jpg',
-    title: 'FPT Software Headquarters',
-    category: 'corporate',
-    desc: 'Delegation visit and office activities at FPT Software Campus.',
+    title: 'Commercial Photoshoot Support',
+    category: 'communications',
+    desc: 'Supporting the process of promoting the image of outstanding employees of FPT Software Corporation.',
     aspect: 'tall'
   },
-  // {
-  //   id: 8,
-  //   type: 'image',
-  //   src: '/vuongdieuhoa_assets/z7875554763165_7431db0add995b47a7bd929a339757ea.jpg',
-  //   title: 'Corporate Reception Pose',
-  //   category: 'corporate',
-  //   desc: 'FPT Software office welcome reception lobby.',
-  //   aspect: 'tall'
-  // },
   {
     id: 9,
     type: 'image',
     src: '/vuongdieuhoa_assets/z7875554729506_802e17ddd78395f93a1f5f4e829bb921.jpg',
-    title: 'Corporate Presentation Screen',
-    category: 'corporate',
-    desc: 'Hosting and delivering presentation segments on corporate stages.',
+    title: 'FPT Event',
+    category: 'communications',
+    desc: 'Scriptwriting and event support for FPT Software Corporation.',
     aspect: 'square'
   },
   {
     id: 10,
     type: 'image',
     src: '/vuongdieuhoa_assets/z7875554766690_068ac3c76bd6c976c2b168efa935e0f9.jpg',
-    title: 'Roundtable Collaboration',
-    category: 'corporate',
-    desc: 'Active boardroom delegation meeting and presentation reviews.',
+    title: 'Create Corporate Promotional Videos',
+    category: 'communications',
+    desc: 'The process of producing external communication videos for FPT Software Corporation.',
     aspect: 'wide'
   },
   {
     id: 11,
     type: 'image',
     src: '/vuongdieuhoa_assets/z7875554766691_a93b37af40b15ef904a4a0da0cb3babb.jpg',
-    title: 'Event Supporting',
-    category: 'corporate',
-    desc: 'Group meeting and collaborative sessions at FPT office spaces.',
+    title: 'Event Marketing',
+    category: 'communications',
+    desc: 'Providing media support for the event through social media platforms.',
     aspect: 'wide'
   },
   {
     id: 12,
     type: 'image',
     src: '/vuongdieuhoa_assets/z7875554770657_a902db78b4d6ce674c001ae4ffd45bf2.jpg',
-    title: 'FPT Software Team banner',
-    category: 'corporate',
-    desc: 'Corporate event and collaborative milestones.',
+    title: 'Event Marketing',
+    category: 'communications',
+    desc: 'Providing media support for the event through social media platforms.',
     aspect: 'wide'
   },
-  // {
-  //   id: 13,
-  //   type: 'image',
-  //   src: '/vuongdieuhoa_assets/z7875554791948_3b737bee3b80ff120a9c2966d69242c7.jpg',
-  //   title: 'FPT Office Landmark',
-  //   category: 'corporate',
-  //   desc: 'Professional delegation activities under FPT banner.',
-  //   aspect: 'wide'
-  // },
   {
     id: 14,
     type: 'image',
     src: '/vuongdieuhoa_assets/z7875554848820_6548df6ff3e94d4dc578280662673e29.jpg',
-    title: 'Boardroom Summit',
-    category: 'corporate',
-    desc: 'Diplomatic delegation and corporate roundtable discussions.',
+    title: 'National Assembly Visit',
+    category: 'academic',
+    desc: 'An academic trip to the Parliament House with my specialized class at the Diplomatic Academy, visiting and learning about the agencies and activities there.',
     aspect: 'wide'
   },
 
-  // DAV Campus
+  // DAV Campus -> ACADEMIC EXPERIENCES
   {
     id: 15,
     type: 'image',
     src: '/vuongdieuhoa_assets/z7875554718651_b1cd8d45e4f5aed113427e2d965cc1ed.jpg',
     title: 'Diplomatic Academy of Vietnam',
-    category: 'campus',
+    category: 'academic',
     desc: 'Diplomatic Academy of Vietnam gate stone landmark.',
     aspect: 'wide'
   },
@@ -156,7 +143,7 @@ const GALLERY_ITEMS = [
     type: 'image',
     src: '/vuongdieuhoa_assets/z7875554839045_8ded8ec45f4f233d009bb977d12083a4.jpg',
     title: 'ASEAN Square DAV',
-    category: 'campus',
+    category: 'academic',
     desc: 'Landmark square flagpoles inside the DAV school campus.',
     aspect: 'square'
   },
@@ -164,37 +151,37 @@ const GALLERY_ITEMS = [
     id: 17,
     type: 'image',
     src: '/vuongdieuhoa_assets/z7875555125316_7d2b0364c9c1300a7c2d659979b9bb19.jpg',
-    title: 'Ministry of Foreign Affairs',
-    category: 'campus',
-    desc: 'Delegation visit at the Vietnamese Ministry of Foreign Affairs (Bộ Ngoại Giao).',
+    title: 'Student Ambassador of the DAV',
+    category: 'academic',
+    desc: 'One of the student representatives of the Diplomatic Academy in 2022.',
     aspect: 'tall'
   },
   {
     id: 18,
     type: 'image',
     src: '/vuongdieuhoa_assets/z7875554839044_2f155995515ebccdab20805487a24bae.jpg',
-    title: 'Event Performance',
-    category: 'campus',
-    desc: 'Academic military training assemblies at school.',
+    title: 'Event Performer',
+    category: 'academic',
+    desc: 'Event performing with a delegation from the Diplomatic Academy upon completing military training.',
     aspect: 'square'
   },
   {
     id: 19,
     type: 'image',
     src: '/vuongdieuhoa_assets/z7875554861781_309092e7e1aacf682f7e69814c85ca51.jpg',
-    title: 'Ministry of Foreign Affairs',
-    category: 'campus',
+    title: 'Ministry of Foreign Affairs Visit',
+    category: 'academic',
     desc: 'Delegation visit at the Vietnamese Ministry of Foreign Affairs (Bộ Ngoại Giao).',
     aspect: 'tall'
   },
 
-  // Education & Classroom
+  // Education & Classroom -> TEACHING EXPERIENCES
   {
     id: 20,
     type: 'image',
     src: '/vuongdieuhoa_assets/z7875554766689_763c631c8cf1e95e67ab686c7850cc68.jpg',
     title: 'AMES English Center Advertisement',
-    category: 'education',
+    category: 'teaching',
     desc: 'Promotional teacher feature spotlight at AMES English Center.',
     aspect: 'square'
   },
@@ -203,7 +190,7 @@ const GALLERY_ITEMS = [
     type: 'image',
     src: '/vuongdieuhoa_assets/z7875554820643_b9afca2bef612f0d91e3936dc17dc343.jpg',
     title: 'TEACHING',
-    category: 'education',
+    category: 'teaching',
     desc: 'Collaborative student lesson planning and whiteboard teaching practices.',
     aspect: 'square'
   },
@@ -211,27 +198,27 @@ const GALLERY_ITEMS = [
     id: 22,
     type: 'image',
     src: '/vuongdieuhoa_assets/z7875554794093_2011bcd8d86abf84034953ead0da1b8c.jpg',
-    title: 'PARLIMENT HOUSE',
-    category: 'education',
-    desc: 'Active ESL classrooms and training lessons for larger assemblies.',
+    title: 'National Assembly Visit',
+    category: 'academic',
+    desc: 'An academic trip to the Parliament House with my specialized class at the Diplomatic.',
     aspect: 'wide'
   },
   {
     id: 23,
     type: 'image',
     src: '/vuongdieuhoa_assets/z7875554794096_6fcbe1f1c597015c85019976139e3505.jpg',
-    title: 'PARLIMENT HOUSE',
-    category: 'education',
-    desc: 'Active teaching demonstrations with high student interaction levels.',
+    title: 'National Assembly Visit',
+    category: 'academic',
+    desc: 'An academic trip to the Parliament House with my specialized class at the Diplomatic.',
     aspect: 'wide'
   },
   {
     id: 24,
     type: 'image',
     src: '/vuongdieuhoa_assets/z7875554804322_c2276328e33a75f15d8f9c31a44e3a81.jpg',
-    title: 'INTERVIEWING',
-    category: 'education',
-    desc: 'Presenting active curriculum maps and ESL syllabus frameworks.',
+    title: 'Employee Spotlight Interviews',
+    category: 'communications',
+    desc: 'Writing scripts, developing concepts, and interviewing key employees to support internal communication within FPT Software Corporation.',
     aspect: 'square'
   }
 ];
@@ -272,7 +259,7 @@ export default function Gallery() {
                 <path d="m22 8-6 4 6 4V8Z" />
                 <rect width="14" height="12" x="2" y="6" rx="2" ry="2" />
               </svg>
-              Multimedia Showcase • 24 Curated Records
+              Multimedia Showcase • {GALLERY_ITEMS.length} Curated Records
             </p>
           </div>
 
@@ -288,28 +275,20 @@ export default function Gallery() {
                   }`}
               >
                 {/* Custom SVGs for categories */}
-                {tab.id === 'hosting' && (
+                {tab.id === 'communications' && (
                   <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" />
-                    <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
-                    <line x1="12" x2="12" y1="19" y2="22" />
+                    <path d="M12 18H3a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h9" />
+                    <path d="M12 6l7-3v16l-7-3" />
+                    <path d="M19 10a3 3 0 0 1 0 4" />
                   </svg>
                 )}
-                {tab.id === 'corporate' && (
-                  <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M15 2H9a2 2 0 0 0-2 2v2H3a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-4V4a2 2 0 0 0-2-2z" />
-                    <rect width="20" height="14" x="2" y="6" rx="2" />
-                    <path d="M12 11h.01" />
-                    <path d="M16 16v1a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-1" />
-                  </svg>
-                )}
-                {tab.id === 'campus' && (
+                {tab.id === 'academic' && (
                   <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z" />
                     <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5" />
                   </svg>
                 )}
-                {tab.id === 'education' && (
+                {tab.id === 'teaching' && (
                   <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
                     <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
@@ -394,7 +373,7 @@ export default function Gallery() {
               <div className="md:w-2/5 p-8 flex flex-col justify-between bg-brutal-white border-t-4 md:border-t-0 md:border-l-4 border-brutal-black">
                 <div>
                   <span className="bg-brutal-orange text-brutal-white text-[10px] font-bold uppercase px-2.5 py-1 rounded-full border border-brutal-black mb-4 inline-block">
-                    {selectedMedia.category.toUpperCase()}
+                    {getCategoryLabel(selectedMedia.category)}
                   </span>
                   <h3 className="font-brutal text-4xl mb-4 leading-none uppercase">
                     {selectedMedia.title}
@@ -402,6 +381,21 @@ export default function Gallery() {
                   <p className="text-sm font-semibold leading-relaxed text-brutal-dark/80">
                     {selectedMedia.desc}
                   </p>
+                  {selectedMedia.link && (
+                    <a
+                      href={selectedMedia.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-6 inline-flex items-center gap-2 bg-brutal-orange text-brutal-white border-2 border-brutal-black px-4 py-2.5 font-sans font-bold text-xs uppercase brutal-shadow hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all w-fit"
+                    >
+                      <span>Read Publication</span>
+                      <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                        <polyline points="15 3 21 3 21 9" />
+                        <line x1="10" x2="21" y1="14" y2="3" />
+                      </svg>
+                    </a>
+                  )}
                 </div>
 
                 <div className="mt-8 pt-6 border-t border-brutal-black/20 text-xs font-bold text-brutal-black/60 uppercase">
@@ -510,9 +504,16 @@ function GalleryCard({ item, onSelect }) {
           <h4 className="font-brutal text-xl leading-none uppercase tracking-wide group-hover:text-brutal-orange transition-colors">
             {item.title}
           </h4>
-          <span className="text-[9px] font-bold uppercase px-2 py-0.5 rounded border border-brutal-black/20 bg-brutal-beige">
-            {item.type}
-          </span>
+          <div className="flex items-center gap-1.5">
+            {item.link && (
+              <span className="text-[9px] font-bold uppercase px-1.5 py-0.5 rounded border border-brutal-orange/30 bg-brutal-orange/10 text-brutal-orange flex items-center gap-0.5">
+                Link
+              </span>
+            )}
+            <span className="text-[9px] font-bold uppercase px-2 py-0.5 rounded border border-brutal-black/20 bg-brutal-beige">
+              {item.type}
+            </span>
+          </div>
         </div>
         <p className="text-xs font-semibold text-brutal-dark/70 mt-1.5 line-clamp-2">
           {item.desc}
