@@ -2,17 +2,26 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brutal-black: #0a0a0a;
-  --color-brutal-orange: #FF4500;
-  --color-brutal-white: #f4f4f0;
+  --color-brutal-black: #000000;
+  --color-brutal-orange: #d25e36;
+  --color-brutal-white: #fcfaf2;
+  --color-brutal-dark: #1a1a1a;
+  --color-brutal-beige: #e0e0de;
+  
+  --color-accent-yellow: #f5b041;
+  --color-accent-green: #556b2f;
+  --color-accent-blue: #2c5282;
+  --color-accent-pink: #f687b3;
 
   --font-sans: Inter, sans-serif;
   --font-brutal: "Bebas Neue", impact, sans-serif;
   --font-script: Caveat, cursive;
+
+  --animate-spin-slow: spin 12s linear infinite;
 }
 
 body {
-  background-color: var(--color-brutal-white);
+  background-color: var(--color-brutal-beige);
   color: var(--color-brutal-black);
   font-family: var(--font-sans);
   margin: 0;
@@ -20,17 +29,21 @@ body {
 }
 
 @utility brutal-border {
-  border-width: 4px;
-  border-color: var(--color-brutal-black);
+  border: 2px solid var(--color-brutal-black);
+}
+
+@utility brutal-border-thick {
+  border: 4px solid var(--color-brutal-black);
 }
 
 @utility brutal-shadow {
-  box-shadow: 8px 8px 0px 0px rgba(10,10,10,1);
+  box-shadow: 6px 6px 0px 0px rgba(0,0,0,1);
 }
 
 @utility brutal-shadow-hover {
+  transition: all 0.2s ease-in-out;
   &:hover {
-    box-shadow: 12px 12px 0px 0px rgba(10,10,10,1);
+    box-shadow: 10px 10px 0px 0px rgba(0,0,0,1);
     transform: translate(-4px, -4px);
   }
 }
@@ -38,3 +51,4 @@ body {
 @utility brutal-transition {
   transition: all 0.2s ease-in-out;
 }
+
