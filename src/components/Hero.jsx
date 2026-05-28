@@ -15,6 +15,7 @@ export default function Hero() {
         <div className="p-4 md:p-6 flex flex-col justify-center text-center md:text-right text-[11px] md:text-xs leading-tight">
           <div>PHONE: 0979 780 531</div>
           <div>EMAIL: VUONGDIEUHOA291@GMAIL.COM</div>
+          <div>LINKEDIN: <a href="https://linkedin.com/in/hoadav49" target="_blank" rel="noreferrer" className="underline hover:text-brutal-orange transition-colors">LINKEDIN.COM/IN/HOADAV49</a></div>
           <div>LOCATION: HA NOI, VIETNAM</div>
         </div>
       </div>

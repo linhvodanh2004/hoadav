@@ -122,6 +122,19 @@ export default function About() {
                 </svg>
                 HA NOI, VIETNAM
               </span>
+              <a
+                href="https://linkedin.com/in/hoadav49"
+                target="_blank"
+                rel="noreferrer"
+                className="bg-brutal-white hover:bg-accent-blue hover:text-brutal-white border-2 border-brutal-black font-bold text-xs py-1.5 px-3 rounded-full brutal-shadow flex items-center gap-1.5 transition-all duration-200 group"
+              >
+                <svg className="w-3.5 h-3.5 text-brutal-orange group-hover:text-brutal-white transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                  <rect width="4" height="12" x="2" y="9" />
+                  <circle cx="4" cy="4" r="2" />
+                </svg>
+                LINKEDIN
+              </a>
             </motion.div>
           </div>
 

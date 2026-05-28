@@ -20,7 +20,7 @@ export default function Contact() {
           LET'S TALK
         </motion.h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 w-full">
           <ContactCard 
             icon={<Phone size={28} />} 
             title="PHONE" 
@@ -36,17 +36,31 @@ export default function Contact() {
             bgClass="bg-accent-yellow"
           />
           <ContactCard 
+            icon={
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                <rect width="4" height="12" x="2" y="9" />
+                <circle cx="4" cy="4" r="2" />
+              </svg>
+            } 
+            title="LINKEDIN" 
+            detail="hoadav49" 
+            delay={0.2}
+            bgClass="bg-accent-blue"
+            href="https://linkedin.com/in/hoadav49"
+          />
+          <ContactCard 
             icon={<MapPin size={28} />} 
             title="LOCATION" 
             detail="Ha Noi, Vietnam" 
-            delay={0.2}
+            delay={0.3}
             bgClass="bg-accent-pink"
           />
           <ContactCard 
             icon={<Calendar size={28} />} 
             title="DOB" 
             detail="29/01/2004" 
-            delay={0.3}
+            delay={0.4}
             bgClass="bg-brutal-beige"
           />
         </div>
@@ -68,21 +82,27 @@ export default function Contact() {
   )
 }
 
-function ContactCard({ icon, title, detail, delay, bgClass }) {
+function ContactCard({ icon, title, detail, delay, bgClass, href }) {
+  const CardComponent = href ? motion.a : motion.div;
+  const linkProps = href ? { href, target: "_blank", rel: "noreferrer", className: "cursor-pointer block" } : {};
+  const isDarkBg = bgClass.includes('bg-accent-blue') || bgClass.includes('bg-accent-green');
+  const textClass = isDarkBg ? 'text-brutal-white' : 'text-brutal-black';
+
   return (
-    <motion.div
+    <CardComponent
       initial={{ y: 30, opacity: 0 }}
       whileInView={{ y: 0, opacity: 1 }}
       viewport={{ once: true }}
       transition={{ delay }}
-      className={`${bgClass} text-brutal-black p-6 border-4 border-brutal-black rounded-xl brutal-shadow-hover flex flex-col items-center justify-center text-center`}
+      {...linkProps}
+      className={`${bgClass} ${textClass} p-6 border-4 border-brutal-black rounded-xl brutal-shadow-hover flex flex-col items-center justify-center text-center h-full`}
     >
       <div className="bg-brutal-orange text-brutal-white p-3 rounded-full border-2 border-brutal-black mb-4 brutal-shadow">
         {icon}
       </div>
       <h4 className="font-brutal text-3xl mb-2 tracking-wide">{title}</h4>
-      <p className="font-sans font-bold text-sm break-all">{detail}</p>
-    </motion.div>
+      <p className="font-sans font-bold text-[11px] sm:text-xs md:text-sm break-all">{detail}</p>
+    </CardComponent>
   )
 }
 
