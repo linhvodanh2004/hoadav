@@ -238,6 +238,51 @@ const GALLERY_ITEMS = [
     category: 'communications',
     desc: 'Writing scripts, developing concepts, and interviewing key employees to support internal communication within FPT Software Corporation.',
     aspect: 'wide'
+  },
+  {
+    id: 27,
+    type: 'image',
+    src: '/vuongdieuhoa_assets/z7876469315449_f89a9bc775c39706a9e6be3b30621fd0.jpg',
+    title: 'End-of-Course Test for APTIS Students',
+    category: 'teaching',
+    desc: 'Conducting online speaking assessments and final evaluations for APTIS certification students.',
+    aspect: 'square'
+  },
+  {
+    id: 28,
+    type: 'video',
+    src: '/vuongdieuhoa_assets/7876469324541.mp4',
+    title: 'One-on-One IELTS Speaking Mentoring',
+    category: 'teaching',
+    desc: 'Providing personalized feedback and individual guidance to help students master IELTS Speaking structures.',
+    aspect: 'video-tall'
+  },
+  {
+    id: 29,
+    type: 'video',
+    src: '/vuongdieuhoa_assets/7876469330384.mp4',
+    title: 'English Literature & Movie Analysis Class',
+    category: 'teaching',
+    desc: 'Lecturing on reading comprehension and movie studies using contemporary materials like "Crazy Rich Asians" to engage students.',
+    aspect: 'video-tall'
+  },
+  {
+    id: 30,
+    type: 'video',
+    src: '/vuongdieuhoa_assets/7876469712704.mp4',
+    title: 'Interactive Sentence Structure & Speaking Lesson',
+    category: 'teaching',
+    desc: 'Teaching core grammar rules, speaking connectors, and sentence construction techniques to build fluent conversational English.',
+    aspect: 'video-wide'
+  },
+  {
+    id: 31,
+    type: 'video',
+    src: '/vuongdieuhoa_assets/7876470920349.mp4',
+    title: 'Communicative Warm-up & Interactive Discussion',
+    category: 'teaching',
+    desc: 'Facilitating lively, interactive class discussions on student learning experiences to build confidence and conversational skills.',
+    aspect: 'video-wide'
   }
 ];
 
