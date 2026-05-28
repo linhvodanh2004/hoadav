@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Download, FileText, Award, GraduationCap, CheckCircle, Eye, X } from 'lucide-react';
 
 export default function Credentials() {
-  const [showCertModal, setShowCertModal] = useState(false);
+  const [activeCert, setActiveCert] = useState(null);
 
   const ieltsScores = [
     { label: 'LISTENING', score: '8.0' },
@@ -73,7 +73,12 @@ export default function Credentials() {
               </div>
 
               <button
-                onClick={() => setShowCertModal(true)}
+                onClick={() => setActiveCert({
+                  title: 'IELTS Test Report Form (TRF)',
+                  src: '/vuongdieuhoa_assets/vuongdieuhoa_ielts_cert.jpg',
+                  candidate: 'VUONG DIEU HOA',
+                  info: 'Test Date: 2026 • BRITISH COUNCIL'
+                })}
                 className="w-full bg-brutal-white hover:bg-brutal-beige text-brutal-black border-2 border-brutal-black py-2.5 px-4 font-bold text-xs uppercase text-center rounded-xl brutal-shadow-hover flex items-center justify-center gap-2 mt-4 transition-all"
               >
                 <Eye size={16} />
@@ -114,6 +119,18 @@ export default function Credentials() {
                     <h4 className="font-bold text-base text-brutal-black">IELTS Writing - Teacher Training Program</h4>
                     <p className="text-xs font-semibold text-brutal-dark/70">Provided by IDP • 2026</p>
                     <p className="text-xs font-medium text-brutal-dark/75 mt-1">Professional training on assessment criteria, teaching methodology, and student evaluation guidelines.</p>
+                    <button
+                      onClick={() => setActiveCert({
+                        title: 'IELTS Writing Teacher Training Certificate',
+                        src: '/vuongdieuhoa_assets/teacher_training_program_ielts_writing_cert.jpg',
+                        candidate: 'VUONG DIEU HOA',
+                        info: 'Date: 2026 • IDP VIETNAM'
+                      })}
+                      className="mt-2 bg-brutal-white hover:bg-brutal-beige text-brutal-black border border-brutal-black py-1 px-3 font-bold text-[10px] uppercase rounded brutal-shadow-hover flex items-center gap-1.5 transition-all w-fit"
+                    >
+                      <Eye size={12} />
+                      View Certificate
+                    </button>
                   </div>
                 </div>
 
@@ -196,9 +213,9 @@ export default function Credentials() {
 
       </div>
 
-      {/* IELTS Certificate Lightbox Modal */}
+      {/* Certificate Lightbox Modal */}
       <AnimatePresence>
-        {showCertModal && (
+        {activeCert && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -214,7 +231,7 @@ export default function Credentials() {
             >
               {/* Close Button */}
               <button
-                onClick={() => setShowCertModal(false)}
+                onClick={() => setActiveCert(null)}
                 className="absolute top-4 right-4 z-30 bg-brutal-orange text-brutal-white border-2 border-brutal-black p-2 rounded-full hover:scale-115 transition-transform brutal-shadow"
               >
                 <X size={20} />
@@ -223,23 +240,23 @@ export default function Credentials() {
               {/* Title Header */}
               <div className="p-6 border-b-4 border-brutal-black bg-brutal-beige">
                 <span className="text-[10px] font-bold uppercase tracking-wider bg-brutal-orange text-brutal-white px-2 py-0.5 rounded border border-brutal-black">VERIFIED RECORD</span>
-                <h3 className="font-brutal text-3xl leading-none uppercase mt-2">IELTS Test Report Form (TRF)</h3>
+                <h3 className="font-brutal text-3xl leading-none uppercase mt-2">{activeCert.title}</h3>
               </div>
 
               {/* Certificate Image Frame */}
-              <div className="bg-brutal-dark p-4 flex items-center justify-center overflow-auto max-h-[70vh]">
+              <div className="bg-brutal-dark p-4 flex items-center justify-center overflow-hidden">
                 <img
-                  src="/vuongdieuhoa_assets/vuongdieuhoa_ielts_cert.jpg"
-                  alt="Official IELTS 7.5 Certificate"
-                  className="max-w-full h-auto object-contain rounded-lg border border-brutal-black/20"
+                  src={activeCert.src}
+                  alt={activeCert.title}
+                  className="max-w-full max-h-[65vh] w-auto h-auto object-contain rounded-lg border border-brutal-black/20"
                   draggable="false"
                 />
               </div>
 
               {/* Info Footer */}
               <div className="p-4 bg-brutal-white border-t-2 border-brutal-black flex flex-col sm:flex-row justify-between items-center text-xs font-bold text-brutal-black/60 uppercase gap-2">
-                <div>Candidate: VUONG DIEU HOA</div>
-                <div>Test Date: 2024 • IDP VIETNAM</div>
+                <div>Candidate: {activeCert.candidate}</div>
+                <div>{activeCert.info}</div>
               </div>
 
             </motion.div>

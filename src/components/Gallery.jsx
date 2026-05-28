@@ -220,6 +220,24 @@ const GALLERY_ITEMS = [
     category: 'communications',
     desc: 'Writing scripts, developing concepts, and interviewing key employees to support internal communication within FPT Software Corporation.',
     aspect: 'square'
+  },
+  {
+    id: 25,
+    type: 'image',
+    src: '/vuongdieuhoa_assets/z7876528911925_d13f9306fc632952f8dee1831ce3d71b.jpg',
+    title: 'Employee Spotlight Interviews',
+    category: 'communications',
+    desc: 'Writing scripts, developing concepts, and interviewing key employees to support internal communication within FPT Software Corporation.',
+    aspect: 'wide'
+  },
+  {
+    id: 26,
+    type: 'image',
+    src: '/vuongdieuhoa_assets/z7876528911954_53704de4a88ed32734b01f05a95702ba.jpg',
+    title: 'Employee Spotlight Interviews',
+    category: 'communications',
+    desc: 'Writing scripts, developing concepts, and interviewing key employees to support internal communication within FPT Software Corporation.',
+    aspect: 'wide'
   }
 ];
 
