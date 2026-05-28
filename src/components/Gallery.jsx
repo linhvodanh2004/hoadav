@@ -128,16 +128,7 @@ const GALLERY_ITEMS = [
     aspect: 'wide'
   },
 
-  // DAV Campus -> ACADEMIC EXPERIENCES
-  {
-    id: 15,
-    type: 'image',
-    src: '/vuongdieuhoa_assets/z7875554718651_b1cd8d45e4f5aed113427e2d965cc1ed.jpg',
-    title: 'Diplomatic Academy of Vietnam',
-    category: 'academic',
-    desc: 'Diplomatic Academy of Vietnam gate stone landmark.',
-    aspect: 'wide'
-  },
+
   {
     id: 16,
     type: 'image',
